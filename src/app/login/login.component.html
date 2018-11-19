@@ -2,23 +2,35 @@
 
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-    <h5 *ngIf="success">Your form is valid!</h5>
-
+    <h5 *ngIf="success">Login Successfully</h5>
+    
     <label>
       User Name:
-      <input type="text" formControlName="UserName">
+     </label>
+     <label>
+      <input type="text" formControlName="UserName">       
+    </label>
+
+    <label>
       <div *ngIf="submitted && loginForm.controls.UserName.errors" class="error">
         <div *ngIf="loginForm.controls.UserName.errors.required">Your User Name is required</div>
-      </div> 
+      </div>
     </label>
-  
+   
+   
     <label>
       Password:
-      <textarea formControlName="Password"></textarea>
+    </label>
+    <label>
+      <input type="password" formControlName="Password">
+     <label>
+
+    </label> 
       <div *ngIf="submitted && loginForm.controls.Password.errors" class="error">
         <div *ngIf="loginForm.controls.Password.errors.required">Password is required</div>
       </div>
     </label>
+
 
     <input type="submit" value="Login" class="cta">
   
