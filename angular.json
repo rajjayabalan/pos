@@ -3,31 +3,34 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pos": {
+    "Pos": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "sass"
+          "styleext": "scss"
         }
       },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pos",
+            "outputPath": "dist/Pos",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
+              "src/apple-touch-icon.png",
+              "src/robots.txt",
+              "src/manifest.json",
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/main.scss"
             ],
             "scripts": []
           },
@@ -61,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pos:build"
+            "browserTarget": "Pos:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pos:build:production"
+              "browserTarget": "Pos:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pos:build"
+            "browserTarget": "Pos:build"
           }
         },
         "test": {
@@ -83,11 +86,14 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.sass"
+              "src/main.scss"
             ],
             "scripts": [],
             "assets": [
               "src/favicon.ico",
+              "src/apple-touch-icon.png",
+              "src/robots.txt",
+              "src/manifest.json",
               "src/assets"
             ]
           }
@@ -106,7 +112,7 @@
         }
       }
     },
-    "pos-e2e": {
+    "Pos-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -115,11 +121,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "pos:serve"
+            "devServerTarget": "Pos:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "pos:serve:production"
+              "devServerTarget": "Pos:serve:production"
             }
           }
         },
@@ -135,5 +141,5 @@
       }
     }
   },
-  "defaultProject": "pos"
+  "defaultProject": "Pos"
 }

@@ -1,0 +1,14 @@
+{
+  "name": "pos",
+  "short_name": "pos",
+  "theme_color": "#488aff",
+  "background_color": "#488aff",
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/pos-logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}

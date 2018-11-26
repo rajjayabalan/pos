@@ -1,28 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { finalize } from 'rxjs/operators';
+
+import { QuoteService } from './quote.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.sass']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  quote: string;
+  isLoading: boolean;
 
-  h1Style: boolean = false;
-  users: Object;
-
-  constructor(private data: DataService) { }
+  constructor(private quoteService: QuoteService) {}
 
   ngOnInit() {
-    this.data.getUsers().subscribe(data => {
-        this.users = data
-        console.log(this.users);
-      }
-    );
+    this.isLoading = true;
+    this.quoteService
+      .getRandomQuote({ category: 'dev' })
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+        })
+      )
+      .subscribe((quote: string) => {
+        this.quote = quote;
+      });
   }
-
-  firstClick() {
-    this.data.firstClick();
-  }
-
 }
